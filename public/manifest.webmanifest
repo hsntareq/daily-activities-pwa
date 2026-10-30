@@ -1,0 +1,27 @@
+{
+  "name": "Daily Activities - Modern PWA Task & Schedule Manager",
+  "short_name": "DailyActivities",
+  "description": "Modern, offline-first PWA task and schedule manager with real-time sync, rich animations, and voice-to-text.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

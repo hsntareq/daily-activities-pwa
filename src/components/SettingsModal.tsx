@@ -13,9 +13,10 @@ interface SettingsModalProps {
     pendingChangesCount: number;
     firebaseConnected: boolean;
   };
+  onOpenInspector?: () => void;
 }
 
-export function SettingsModal({ isOpen, onClose, syncState }: SettingsModalProps) {
+export function SettingsModal({ isOpen, onClose, syncState, onOpenInspector }: SettingsModalProps) {
   const { theme, setTheme, fontSize, setFontSize, soundEnabled, setSoundEnabled } = useSettings();
 
   if (!isOpen) return null;
@@ -188,6 +189,21 @@ export function SettingsModal({ isOpen, onClose, syncState }: SettingsModalProps
               </span>
             </div>
           </div>
+          {/* Developer / Architecture Inspector */}
+          {onOpenInspector && (
+            <div className="pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  onOpenInspector();
+                }}
+                className="w-full py-2.5 px-3 rounded-xl border border-indigo-500/30 bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <span>🔍 Open DB & Data Model Inspector</span>
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Footer */}

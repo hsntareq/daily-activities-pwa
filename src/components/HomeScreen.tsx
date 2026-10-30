@@ -88,7 +88,11 @@ const DEFAULT_PROFILES: SharedProfile[] = [
   },
 ];
 
-export function HomeScreen() {
+interface HomeScreenProps {
+  onOpenInspector?: () => void;
+}
+
+export function HomeScreen({ onOpenInspector }: HomeScreenProps) {
   const { theme } = useSettings();
   const [categories, setCategories] = useState<Category[]>([]);
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -312,7 +316,10 @@ export function HomeScreen() {
   const completionPercentage = totalDateTasks > 0 ? Math.round((completedDateTasks / totalDateTasks) * 100) : 0;
 
   return (
-    <div className="min-h-screen bg-[var(--bg-main)] text-[var(--text-primary)] antialiased transition-colors duration-300 pb-24">
+    <div
+      className="min-h-screen bg-slate-950 text-slate-100 antialiased transition-colors duration-300 pb-24"
+      style={{ backgroundColor: 'var(--bg-main)', color: 'var(--text-primary)' }}
+    >
       {/* Interactive Routine Notification Popup */}
       <RoutineNotificationPrompt onCompleteTask={handleCompleteRoutinePrompt} />
 
@@ -754,6 +761,7 @@ export function HomeScreen() {
         isOpen={isSettingsOpen}
         onClose={() => setIsSettingsOpen(false)}
         syncState={syncState}
+        onOpenInspector={onOpenInspector}
       />
 
       {/* Recurring Events Cadence Modal */}
