@@ -12,6 +12,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const viewport: Viewport = {
   themeColor: "#4f46e5",
   width: "device-width",
@@ -23,15 +25,15 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "DailyActivities — Modern Offline-First PWA Task & Schedule Manager",
   description: "Modern, offline-first PWA task and schedule manager with real-time sync, emojis, animations, and voice input.",
-  manifest: "/manifest.webmanifest",
+  manifest: `${basePath}/manifest.webmanifest`,
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "DailyActivities",
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/icons/icon-192.svg",
+    icon: `${basePath}/favicon.ico`,
+    apple: `${basePath}/icons/icon-192.svg`,
   },
 };
 
